@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live News Feed</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">NewsFeed.</div>
+            <form class="search-form" id="search-form">
+                <input type="text" id="search-input" placeholder="Search news articles..." required />
+                <button type="submit" class="btn btn-search">Search</button>
+            </form>
+        </div>
+        <nav class="categories-nav">
+            <button class="category-btn active" data-category="general">General</button>
+            <button class="category-btn" data-category="technology">Technology</button>
+            <button class="category-btn" data-category="sports">Sports</button>
+            <button class="category-btn" data-category="business">Business</button>
+        </nav>
+    </header>
+</body>
+</html>
