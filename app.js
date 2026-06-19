@@ -37,6 +37,25 @@ function init() {
             }
         });
     }
+    const searchForm = document.getElementById("search-form");
+    const searchInput = document.getElementById("search-input");
+    if (searchForm && searchInput) {
+        searchForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const query = searchInput.value.trim();
+            if (query) {
+                // Remove active states from categories when searching to be clean
+                const currentActive = categoriesNav ? categoriesNav.querySelector(".category-btn.active") : null;
+                if (currentActive) {
+                    currentActive.classList.remove("active");
+                }
+                
+                const url = `${BASE_URL}?q=${encodeURIComponent(query)}&apiKey=${API_KEY}`;
+                fetchNews(url);
+                searchInput.value = "";
+            }
+        });
+    }
 }
 
 document.addEventListener("DOMContentLoaded", init);
