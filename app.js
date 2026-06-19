@@ -11,4 +11,7 @@ async function fetchNews(queryUrl) {
     if (spinner) {
         spinner.style.display = "none";
     }
+
+    const data = await response.json();
+    console.log(data);
 }
