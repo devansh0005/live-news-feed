@@ -20,6 +20,23 @@ async function fetchNews(queryUrl) {
 function init() {
     const url = `${BASE_URL}?category=general&apiKey=${API_KEY}`;
     fetchNews(url);
+
+    const categoriesNav = document.querySelector(".categories-nav");
+    if (categoriesNav) {
+        categoriesNav.addEventListener("click", (event) => {
+            if (event.target.classList.contains("category-btn")) {
+                const currentActive = categoriesNav.querySelector(".category-btn.active");
+                if (currentActive) {
+                    currentActive.classList.remove("active");
+                }
+                event.target.classList.add("active");
+
+                const category = event.target.textContent.trim().toLowerCase();
+                const url = `${BASE_URL}?category=${category}&apiKey=${API_KEY}`;
+                fetchNews(url);
+            }
+        });
+    }
 }
 
 document.addEventListener("DOMContentLoaded", init);
